@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import '../App.css'
 
 // Styled components for desktop-nav
 const DesktopNav = styled.nav`
@@ -11,6 +12,7 @@ const DesktopNav = styled.nav`
   @media screen and (max-width: 1200px) {
     display: none;
   }
+  
 `;
 
 const DesktopNavLinks = styled.ul`
@@ -18,6 +20,12 @@ const DesktopNavLinks = styled.ul`
   gap: 2rem;
   list-style: none;
   font-size: 1.5rem;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
 `;
 
 const DesktopLinkItem = styled.li``;
@@ -82,6 +90,9 @@ const IconSpan = styled.span`
 
 const HamburgerLinkItem = styled.li`
   list-style: none;
+  @media screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
 `;
 
 const HamburgerLink = styled.a`
@@ -92,6 +103,10 @@ const HamburgerLink = styled.a`
   color: black;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
+  
+  @media screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
 `;
 
 const MenuLinks = styled.ul`
@@ -114,6 +129,9 @@ const Logo = styled.div`
 
   &:hover {
     cursor: default;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 1.5rem;
   }
 `;
 

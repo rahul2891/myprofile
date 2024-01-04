@@ -4,6 +4,7 @@ import aboutPic from '../assets/rahul.png';
 import experienceIcon from '../assets/experience.png';
 import educationIcon from '../assets/education.png';
 import arrowIcon from '../assets/arrow.png';
+import '../App.css'
 
 const Section = styled.section`
     padding-top: 4vh;
@@ -12,23 +13,11 @@ const Section = styled.section`
   box-sizing: border-box;
   min-height: fit-content;
 
-    @media screen and (max-width: 1400px) {
-    height: 83vh;
-    margin-bottom: 6rem;
-  }
-
   @media screen and (max-width: 1200px) {
-    display: block;
     height: fit-content;
     margin: 0 5%;
   }
-
-  @media screen and (max-width: 600px) {
-    height: 83vh;
-    margin-bottom: 0;
-  }
 `;
-
 
 
 const AboutSection = styled(Section)`
@@ -40,6 +29,18 @@ const AboutContainers = styled.div`
     margin-bottom: 2rem;
     margin-top: 2rem;
     display: flex;
+
+    @media screen and (max-width: 1400px) {
+    flex-wrap: wrap;
+  }
+
+  @media screen and (max-width: 1200px) {
+    margin-top: 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const AboutDetailsContainer = styled.div`
@@ -50,7 +51,18 @@ const AboutDetailsContainer = styled.div`
 
 const AboutPic = styled.img`
     border-radius: 2rem;
-`;
+    
+    @media screen and (max-width: 1200px) {
+        width: 275px;
+        height: 275px;
+        margin: 0 auto 2rem;   
+    }
+    @media screen and (max-width: 600px) {
+        width: auto;
+    height: 46vw;
+    justify-content: center;     
+    }
+    `;
 
 const Arrow = styled.img`
     position: absolute;
@@ -72,6 +84,11 @@ const SectionContainer = styled.div`
  display: flex;
     /* gap: 4rem;
     height: 80%; */
+    @media screen and (max-width: 1200px) {
+        display: block;
+    height: fit-content;
+    
+  }
 `;
 
 const SectionPicContainer = styled.div`
@@ -79,6 +96,18 @@ const SectionPicContainer = styled.div`
     height: 500px;
     width: 500px;
     margin: auto 0;
+
+    @media screen and (max-width: 1200px) {
+    width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: auto;
+    height: 46vw;
+    justify-content: center;
+  }
 `;
 
 const Icon = styled.img`
@@ -93,6 +122,10 @@ const SectionTextP1 = styled.p`
 const Title = styled.h1`
     font-size: 3rem;
     text-align: center;
+
+    @media screen and (max-width: 1200px) {
+    font-size: 2rem;
+  }
 `;
 
 
@@ -110,22 +143,23 @@ const About = () => {
                         <DetailsContainer className="details-container">
                             <Icon src={experienceIcon} alt="Experience icon" className="icon" />
                             <h3>Experience</h3>
-                            <p>2+ years <br />Frontend Development</p>
+                            <p>3.5+ years <br />Frontend Development</p>
                         </DetailsContainer>
                         <DetailsContainer className="details-container">
                             <Icon src={educationIcon} alt="Education icon" className="icon" />
                             <h3>Education</h3>
-                            <p>B.Sc. Bachelors Degree<br />M.Sc. Masters Degree</p>
+                            <p>Bachelors Degree</p>
                         </DetailsContainer>
                     </AboutContainers>
                     <div className="text-container">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-                            reprehenderit et laborum, rem, dolore eum quod voluptate
-                            exercitationem nobis, nihil esse debitis maxime facere minus sint
-                            delectus velit in eos quo officiis explicabo deleniti dignissimos.
-                            Eligendi illum libero dolorum cum laboriosam corrupti quidem,
-                            reiciendis ea magnam? Nulla, impedit fuga!
+                        I'm a Full Stack Developer with expertise in React.js and TypeScript for front-end 
+                        development, and Node.js, Express.js, MongoDB for back-end development. I have a passion for solving complex problems 
+                        and building scalable web applications. I'm always eager to learn new 
+                        technologies and improve my skills. My goal is to create software that 
+                        not only functions efficiently under the hood, but also provides intuitive, 
+                        user-friendly interfaces.
+
                         </p>
                     </div>
                 </AboutDetailsContainer>

@@ -2,28 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import emailIcon from '../assets/email.png';
 import linkedinIcon from '../assets/linkedin.png';
+import '../App.css'
 
 const Section = styled.section`
     padding-top: 4vh;
-  height: 96vh;
+  height: fit-content;
   margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
 
-    @media screen and (max-width: 1400px) {
-    height: 83vh;
-    margin-bottom: 6rem;
+  @media screen and (max-width: 1400px) {
+    height: fit-content;
   }
-
   @media screen and (max-width: 1200px) {
-    display: block;
     height: fit-content;
     margin: 0 5%;
   }
-
   @media screen and (max-width: 600px) {
-    height: 83vh;
-    margin-bottom: 0;
+    height: 40vh;
   }
 `;
 
@@ -34,6 +30,10 @@ const SectionTextP1 = styled.p`
 const Title = styled.h1`
     font-size: 3rem;
     text-align: center;
+
+    @media screen and (max-width: 600px) {
+      font-size: 2rem;
+  }
 `;
 
 const ContactInfoUpperContainer = styled.div`
@@ -45,6 +45,10 @@ const ContactInfoUpperContainer = styled.div`
   background: (250, 250, 250);
   margin: 2rem auto;
   padding: 0.5rem;
+
+  @media screen and (max-width: 600px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const ContactInfoContainer = styled.div`
@@ -53,6 +57,12 @@ const ContactInfoContainer = styled.div`
   justify-content: center;
   gap: 0.5rem;
   margin: 1rem;
+
+  @media screen and (max-width: 600px) {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
 `;
 
 const ContactIcon = styled.img`
@@ -72,6 +82,10 @@ const Icon = styled.img`
 const Footer = styled.footer`
   height: 26vh;
   margin: 0 1rem;
+
+  @media screen and (max-width: 600px) {
+    height: 40vh;
+  }
 `;
 
 const Copyright = styled.p`
@@ -90,11 +104,27 @@ const NavLinks = styled.ul`
   gap: 2rem;
   list-style: none;
   font-size: 1.5rem;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
 `;
 
 const NavLink = styled.li`
-  // Add styles for li here
+   @media screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
 `;
+
+const FooterNav = styled.nav`
+   @media screen and (max-width: 600px) {
+    height: fit-content;
+    margin-bottom: 2rem;
+  }
+`
 
 const FooterLink = styled.a`
   color: black;
@@ -107,6 +137,11 @@ const FooterLink = styled.a`
     text-underline-offset: 1rem;
     text-decoration-color: rgb(181, 181, 181);
   }
+
+  @media screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
+
 `;
 
 const Contact = () => {
@@ -118,7 +153,7 @@ const Contact = () => {
         <ContactInfoUpperContainer>
         <ContactInfoContainer>
           <EmailIcon src={emailIcon} alt="Email icon" />
-          <p><a href="rahul281191@gmail.com">rahul281191@gmail.com</a></p>
+          <p><a href="https://www.gmail.com">rahul281191@gmail.com</a></p>
         </ContactInfoContainer>
         <ContactInfoContainer>
           <ContactIcon src={linkedinIcon} alt="LinkedIn icon" />
@@ -128,7 +163,7 @@ const Contact = () => {
        
       </Section>
     <Footer>
-    <nav>
+    <FooterNav>
       <NavLinksContainer>
         <NavLinks>
           <NavLink><FooterLink href="#about">About</FooterLink></NavLink>
@@ -137,7 +172,7 @@ const Contact = () => {
           <NavLink><FooterLink href="#contact">Contact</FooterLink></NavLink>
         </NavLinks>
       </NavLinksContainer>
-    </nav>
+    </FooterNav>
     <Copyright>Copyright &#169; 2023 Rahul Verma. All Rights Reserved.</Copyright>
   </Footer>
   </>

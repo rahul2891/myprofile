@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import checkmarkIcon from '../assets/checkmark.png';
+import '../App.css'
 
 const skills = [
     {
@@ -37,20 +38,8 @@ const Section = styled.section`
   box-sizing: border-box;
   min-height: fit-content;
 
-    @media screen and (max-width: 1400px) {
-    height: 83vh;
-    margin-bottom: 6rem;
-  }
-
   @media screen and (max-width: 1200px) {
-    display: block;
-    height: fit-content;
-    margin: 0 5%;
-  }
-
-  @media screen and (max-width: 600px) {
-    height: 83vh;
-    margin-bottom: 0;
+    margin-top: 2rem;
   }
 `;
 
@@ -61,12 +50,20 @@ const SectionTextP1 = styled.p`
 const Title = styled.h1`
     font-size: 3rem;
     text-align: center;
+
+    @media screen and (max-width: 600px) {
+      font-size: 2rem;
+  }
 `;
 
 const ExperienceDetailsContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  @media screen and (max-width: 1200px) {
+    margin-top: 2rem;
+  }
 `;
 
 const AboutContainers = styled.div`
@@ -74,6 +71,15 @@ const AboutContainers = styled.div`
   flex-direction: row;
   gap: 2.5rem;
   justify-content: space-around;
+
+  @media screen and (max-width: 1200px) {
+    margin-top: 0;
+  }
+
+
+  @media screen and (max-width: 600px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const DetailsContainer = styled.div`
@@ -91,6 +97,10 @@ const ExperienceSubTitle = styled.h2`
   font-weight: 600;
   font-size: 1.75rem;
   margin-bottom: 2rem;
+
+  @media screen and (max-width: 600px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const ArticleContainer = styled.div`
@@ -107,6 +117,11 @@ const Article = styled.article`
   width: 10rem;
   justify-content: space-around;
   gap: 0.5rem;
+
+  @media screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
+
 `;
 
 const Icon = styled.img`

@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import profilePic from '../assets/profile-pic.png';
 import rahul from '../assets/rahul1.png';
 import linkedinIcon from '../assets/linkedin.png';
 import githubIcon from '../assets/github.png';
+import resume from '../assets/resume-example.pdf'
+import '../App.css'
 
 const Section = styled.section`
     padding-top: 4vh;
@@ -17,27 +18,40 @@ const Section = styled.section`
     height: 80vh;
 
     @media screen and (max-width: 1400px) {
+ 
     height: 83vh;
     margin-bottom: 6rem;
-  }
+  
+}
 
-  @media screen and (max-width: 1200px) {
-    display: block;
+@media screen and (max-width: 1200px) {
     height: fit-content;
     margin: 0 5%;
-  }
+    display: block;
+}
 
-  @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     height: 83vh;
     margin-bottom: 0;
-  }
+}
 `;
 
 const ProfilePicContainer = styled.div`
     display: flex;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
     margin: auto 0;
+
+    @media screen and (max-width: 1200px) {
+        width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+    }
+    @media screen and (max-width: 600px) {
+        width: auto;
+    height: 46vw;
+    justify-content: center;
+    }
 `;
 
 const SectionText = styled.div`
@@ -57,17 +71,29 @@ const SectionTextP1 = styled.p`
 const SectionTextP2 = styled.p`
   font-size: 1.75rem;
   margin-bottom: 1rem;
+
+  @media screen and (max-width: 600px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const Title = styled.h1`
     font-size: 3rem;
     text-align: center;
+
+    @media screen and (max-width: 600px) {
+        font-size: 2rem;
+  }
 `;
 
 const ButtonContainer = styled.div`
     display: flex;
     justify-content: center;
     gap: 1rem;
+
+    @media screen and (max-width: 600px) {
+        flex-wrap: wrap;
+  }
 `;
 
 const Button = styled.button`
@@ -103,6 +129,10 @@ const Profile = () => {
         window.open(url);
     };
 
+    const handleClickPath = (path) => {
+        window.location.href = path;
+      };
+
     return (
         <Section id="profile">
             <ProfilePicContainer>
@@ -114,11 +144,11 @@ const Profile = () => {
                 <SectionTextP2>Full Stack Developer</SectionTextP2>
                 <ButtonContainer>
                     <Button
-                        onClick={() => handleClick('../assets/resume-example.pdf')}
+                        onClick={() => window.open(resume)}
                     >
                         Download CV
                     </Button>
-                    <Button onClick={() => handleClick('./#contact')}>
+                    <Button onClick={() => handleClickPath('./#contact')}>
                         Contact Info
                     </Button>
                 </ButtonContainer>
