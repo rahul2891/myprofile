@@ -16,6 +16,11 @@ const Section = styled.section`
       height: fit-content;
   }
 
+  @media screen and (max-width: 1200px) {
+    height: fit-content;
+    margin: 0 5%;
+  }
+
 `;
 
 const SectionTextP1 = styled.p`
@@ -33,7 +38,9 @@ const Title = styled.h1`
 
 
 export const ExperienceDetailsContainer = styled.div`
-  /* Your CSS properties */
+  @media screen and (max-width: 1200px) {
+    margin-top: 2rem;
+  }
 `;
 
 export const AboutContainers = styled.div`

@@ -141,8 +141,20 @@ const FooterLink = styled.a`
   @media screen and (max-width: 600px) {
     font-size: 1rem;
   }
-
 `;
+
+const ContactLink = styled.a`
+   color: black;
+  text-decoration: none;
+  text-decoration-color: white;
+
+  &:hover {
+    color: grey;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    text-decoration-color: rgb(181, 181, 181);
+  }
+`
 
 const Contact = () => {
     return (
@@ -153,11 +165,11 @@ const Contact = () => {
         <ContactInfoUpperContainer>
         <ContactInfoContainer>
           <EmailIcon src={emailIcon} alt="Email icon" />
-          <p><a href="https://www.gmail.com">rahul281191@gmail.com</a></p>
+          <p><ContactLink href="https://www.gmail.com">rahul281191@gmail.com</ContactLink></p>
         </ContactInfoContainer>
         <ContactInfoContainer>
           <ContactIcon src={linkedinIcon} alt="LinkedIn icon" />
-          <p><a href="https://www.linkedin.com">LinkedIn</a></p>
+          <p><ContactLink href="https://www.linkedin.com">LinkedIn</ContactLink></p>
         </ContactInfoContainer>
       </ContactInfoUpperContainer>
        

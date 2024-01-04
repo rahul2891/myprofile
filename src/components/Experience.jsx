@@ -39,6 +39,7 @@ const Section = styled.section`
   min-height: fit-content;
 
   @media screen and (max-width: 1200px) {
+    height: fit-content;
     margin-top: 2rem;
   }
 `;
@@ -71,6 +72,8 @@ const AboutContainers = styled.div`
   flex-direction: row;
   gap: 2.5rem;
   justify-content: space-around;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 
   @media screen and (max-width: 1200px) {
     margin-top: 0;
