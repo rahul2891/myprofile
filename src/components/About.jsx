@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import aboutPic from '../assets/rahul.png';
 import experienceIcon from '../assets/experience.png';
 import educationIcon from '../assets/education.png';
 import arrowIcon from '../assets/arrow.png';
 import '../App.css'
+import { ThemeContext } from '../themeContext';
 
 const Section = styled.section`
     padding-top: 4vh;
@@ -91,6 +92,15 @@ const SectionContainer = styled.div`
   }
 `;
 
+const TextContainer = styled.div``
+
+const TextPara = styled.p`
+    color: ${() => {
+    const { theme } = useContext(ThemeContext);
+    return theme === 'light' ? 'black' : 'white';
+  }};
+`
+
 const SectionPicContainer = styled.div`
     display: flex;
     height: 500px;
@@ -128,10 +138,19 @@ const Title = styled.h1`
   }
 `;
 
+const StyledTextPara = styled.p`
+    color: ${props => props.theme === 'dark' ? 'white' : 'black'};
+`
+const StyledTextHeading = styled.h3`
+    color: ${props => props.theme === 'dark' ? 'white' : 'black'};
+`
+
 
 const About = () => {
+    const { theme } = useContext(ThemeContext);
+
     return (
-        <AboutSection id="about">
+        <AboutSection id="about" className={theme}>
             <SectionTextP1>Get To Know More</SectionTextP1>
             <Title>About Me</Title>
             <SectionContainer className="section-container">
@@ -142,17 +161,17 @@ const About = () => {
                     <AboutContainers className="about-containers">
                         <DetailsContainer className="details-container">
                             <Icon src={experienceIcon} alt="Experience icon" className="icon" />
-                            <h3>Experience</h3>
-                            <p>3.5+ years <br />Frontend Development</p>
+                            <StyledTextHeading>Experience</StyledTextHeading>
+                            <StyledTextPara>3.5+ years <br />Frontend Development</StyledTextPara>
                         </DetailsContainer>
                         <DetailsContainer className="details-container">
                             <Icon src={educationIcon} alt="Education icon" className="icon" />
-                            <h3>Education</h3>
-                            <p>Bachelors Degree</p>
+                            <StyledTextHeading>Education</StyledTextHeading>
+                            <StyledTextPara>Bachelors Degree</StyledTextPara>
                         </DetailsContainer>
                     </AboutContainers>
-                    <div className="text-container">
-                        <p>
+                    <TextContainer>
+                        <TextPara>
                         I'm a Full Stack Developer with expertise in React.js and TypeScript for front-end 
                         development, and Node.js, Express.js, MongoDB for back-end development. I have a passion for solving complex problems 
                         and building scalable web applications. I'm always eager to learn new 
@@ -160,8 +179,8 @@ const About = () => {
                         not only functions efficiently under the hood, but also provides intuitive, 
                         user-friendly interfaces.
 
-                        </p>
-                    </div>
+                        </TextPara>
+                    </TextContainer>
                 </AboutDetailsContainer>
             </SectionContainer>
             {/* <Icon

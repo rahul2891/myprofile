@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
+import { ThemeContext } from '../themeContext';
+import { CiLight } from 'react-icons/ci';
+import { MdDarkMode } from "react-icons/md";
 import '../App.css'
 
 // Styled components for desktop-nav
@@ -31,7 +34,10 @@ const DesktopNavLinks = styled.ul`
 const DesktopLinkItem = styled.li``;
 
 const DesktopLink = styled.a`
-  color: black;
+  color: ${() => {
+    const { theme } = useContext(ThemeContext);
+    return theme === 'light' ? 'black' : 'white';
+  }};
   text-decoration: none;
   text-decoration-color: white;
 
@@ -103,7 +109,7 @@ const HamburgerLink = styled.a`
   color: black;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
-  
+
   @media screen and (max-width: 600px) {
     font-size: 1rem;
   }
@@ -137,6 +143,7 @@ const Logo = styled.div`
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -144,8 +151,14 @@ const Navbar = () => {
 
   return (
     <>
-      <DesktopNav id="desktop-nav">
+    <nav className={theme}>
+      <DesktopNav id="desktop-nav" >
         <Logo>Rahul Verma</Logo>
+        {theme === 'light' ? (
+  <MdDarkMode style={{width:"30px", height:"30px"}} onClick={toggleTheme} />
+) : (
+  <CiLight style={{width:"30px", height:"30px"}} onClick={toggleTheme} />
+)}
         <DesktopNavLinks>
           <DesktopLinkItem><DesktopLink href="#about">About</DesktopLink></DesktopLinkItem>
           <DesktopLinkItem><DesktopLink href="#experience">Experience</DesktopLink></DesktopLinkItem>
@@ -153,6 +166,7 @@ const Navbar = () => {
           <DesktopLinkItem><DesktopLink href="#contact">Contact</DesktopLink></DesktopLinkItem>
         </DesktopNavLinks>
       </DesktopNav>
+      </nav>
       <HamburgerNav id="hamburger-nav">
         <Logo>Rahul Verma</Logo>
         <HamburgerMenu>

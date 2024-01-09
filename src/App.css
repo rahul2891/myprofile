@@ -13,7 +13,19 @@ html {
   scroll-behavior: smooth;
 }
 
-p {
+/* p {
   color: rgb(85, 85, 85);
+} */
+
+
+.light {
+  /* light theme styles */
+  background-color: white !important;
+  color: black !important;
 }
 
+.dark {
+  /* dark theme styles */
+  background-color: black !important;
+  color: white !important;
+}

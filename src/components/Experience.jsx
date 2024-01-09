@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import checkmarkIcon from '../assets/checkmark.png';
+import checkmarkdark from '../assets/checkmarkdark.png';
 import '../App.css'
+import { ThemeContext } from '../themeContext';
 
 const skills = [
     {
@@ -61,6 +63,7 @@ const ExperienceDetailsContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  color: ${props => props.theme === 'light' ? 'black' : 'white'};
 
   @media screen and (max-width: 1200px) {
     margin-top: 2rem;
@@ -74,6 +77,7 @@ const AboutContainers = styled.div`
   justify-content: space-around;
   margin-bottom: 2rem;
   margin-top: 2rem;
+  color: ${props => props.theme === 'light' ? 'black' : 'white'};
 
   @media screen and (max-width: 1200px) {
     margin-top: 0;
@@ -88,7 +92,7 @@ const AboutContainers = styled.div`
 const DetailsContainer = styled.div`
  padding: 1.5rem;
   flex: 1;
-  background: white;
+  background: ${props => props.theme === 'light' ? 'white' : 'black'};
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
@@ -133,19 +137,21 @@ const Icon = styled.img`
 `;
 
 const Experience = () => {
+  const { theme } = useContext(ThemeContext);
+
     return (
-        <Section id="experience">
+        <Section id="experience" className={theme}>
         <SectionTextP1 class="section__text__p1">Explore My</SectionTextP1>
         <Title class="title">Experience</Title>
-        <ExperienceDetailsContainer>
-          <AboutContainers>
+        <ExperienceDetailsContainer theme={theme}>
+          <AboutContainers theme={theme}> 
             {skills.map((category) => (
-              <DetailsContainer key={category.category}>
+              <DetailsContainer key={category.category} theme={theme}>
                 <ExperienceSubTitle>{category.category}</ExperienceSubTitle>
                 <ArticleContainer>
                   {category.skills.map((skill) => (
                     <Article key={skill.name}>
-                      <Icon src={checkmarkIcon} alt="Experience icon" />
+                      <Icon src={theme === 'light' ? checkmarkIcon : checkmarkdark} alt="Experience icon" />
                       <div>
                         <h3>{skill.name}</h3>
                         <p>{skill.level}</p>

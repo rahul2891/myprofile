@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import emailIcon from '../assets/email.png';
+import emaildark from '../assets/emaildark.png';
 import linkedinIcon from '../assets/linkedin.png';
+import linkedindark from '../assets/linkedindark.png';
 import '../App.css'
+import { ThemeContext } from '../themeContext';
 
 const Section = styled.section`
     padding-top: 4vh;
@@ -127,7 +130,7 @@ const FooterNav = styled.nav`
 `
 
 const FooterLink = styled.a`
-  color: black;
+  color: ${props => props.theme === 'dark' ? 'black' : 'white'};
   text-decoration: none;
   text-decoration-color: white;
 
@@ -144,7 +147,7 @@ const FooterLink = styled.a`
 `;
 
 const ContactLink = styled.a`
-   color: black;
+  color: ${props => props.theme === 'light' ? 'black' : 'white'};
   text-decoration: none;
   text-decoration-color: white;
 
@@ -156,7 +159,16 @@ const ContactLink = styled.a`
   }
 `
 
+const StyledTextPara = styled.p`
+    color: ${props => props.theme === 'dark' ? 'white' : 'black'};
+    @media screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
+`
+
 const Contact = () => {
+  const { theme } = useContext(ThemeContext);
+
     return (
         <>
         <Section id="contact">
@@ -164,12 +176,12 @@ const Contact = () => {
         <Title class="title">Contact Me</Title>
         <ContactInfoUpperContainer>
         <ContactInfoContainer>
-          <EmailIcon src={emailIcon} alt="Email icon" />
-          <p><ContactLink href="https://www.gmail.com">rahul281191@gmail.com</ContactLink></p>
+          <EmailIcon src={theme === 'light' ? emailIcon : emaildark} alt="Email icon" />
+          <StyledTextPara><ContactLink href="https://www.gmail.com"  theme={theme}>rahul281191@gmail.com</ContactLink></StyledTextPara>
         </ContactInfoContainer>
         <ContactInfoContainer>
-          <ContactIcon src={linkedinIcon} alt="LinkedIn icon" />
-          <p><ContactLink href="https://www.linkedin.com">LinkedIn</ContactLink></p>
+          <ContactIcon src={theme === 'light' ? linkedinIcon : linkedindark} alt="LinkedIn icon" />
+          <StyledTextPara><ContactLink href="https://www.linkedin.com/in/rahulv28/"  theme={theme}>LinkedIn</ContactLink></StyledTextPara>
         </ContactInfoContainer>
       </ContactInfoUpperContainer>
        

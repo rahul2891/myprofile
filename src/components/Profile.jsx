@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import rahul from '../assets/rahul1.png';
 import linkedinIcon from '../assets/linkedin.png';
 import githubIcon from '../assets/github.png';
-import resume from '../assets/resume-example.pdf'
+import linkedindark from '../assets/linkedindark.png';
+import githubdark from '../assets/githubdark.png';
+import resume from '../assets/rahul-resume.pdf'
 import '../App.css'
+import { ThemeContext } from '../themeContext';
 
 const Section = styled.section`
     padding-top: 4vh;
@@ -104,13 +107,20 @@ const Button = styled.button`
     border-radius: 2rem;
     border: rgb(53, 53, 53) 0.1rem solid;
     background: rgb(53, 53, 53);
-    color: white;
+    color: ${props => props.theme === 'dark' ? 'white' : 'black'};
+    
 
     &:hover {
         cursor: pointer;
-        background: rgb(0, 0, 0);
+        background: ${props => props.theme === 'light' ? 'black' : 'white'};
+        color: ${props => props.theme === 'dark' ? 'black' : 'white'};
+
     }
 `;
+
+const TextPara = styled.p`
+    color: ${props => props.theme === 'light' ? 'white' : 'dark'};
+`
 
 const SocialsContainer = styled.div`
     display: flex;
@@ -125,6 +135,8 @@ const Icon = styled.img`
 `;
 
 const Profile = () => {
+    const { theme } = useContext(ThemeContext);
+
     const handleClick = (url) => {
         window.open(url);
     };
@@ -134,7 +146,7 @@ const Profile = () => {
       };
 
     return (
-        <Section id="profile">
+        <Section id="profile" className={theme}>
             <ProfilePicContainer>
                 <img src={rahul} alt="Rahul Verma profile picture" />
             </ProfilePicContainer>
@@ -145,23 +157,24 @@ const Profile = () => {
                 <ButtonContainer>
                     <Button
                         onClick={() => window.open(resume)}
+                        theme={theme}
                     >
-                        Download CV
+                        <TextPara theme={theme}>Download CV</TextPara>
                     </Button>
-                    <Button onClick={() => handleClickPath('./#contact')}>
-                        Contact Info
+                    <Button onClick={() => handleClickPath('./#contact')} theme={theme}>
+                        <TextPara theme={theme}>Contact Info</TextPara>
                     </Button>
                 </ButtonContainer>
                 <SocialsContainer>
                     <Icon
-                        src={linkedinIcon}
+                        src={theme === 'light' ? linkedinIcon : linkedindark}
                         alt="My LinkedIn profile"
-                        onClick={() => handleClick('https://linkedin.com/')}
+                        onClick={() => handleClick('https://www.linkedin.com/in/rahulv28/')}
                     />
                     <Icon
-                        src={githubIcon}
+                        src={theme === 'light' ? githubIcon : githubdark}
                         alt="My Github profile"
-                        onClick={() => handleClick('https://github.com/')}
+                        onClick={() => handleClick('https://github.com/rahul2891')}
                     />
                 </SocialsContainer>
             </SectionText>

@@ -106,6 +106,7 @@ font-weight: 600;
   border-color: rgb(163, 163, 163);
   border: rgb(53, 53, 53) 0.1rem solid;
   background: none;
+  cursor: pointer;
   
 
   &:hover {
@@ -118,13 +119,17 @@ font-weight: 600;
 
 const Projects = () => {
   const projects = [
-    { img: project1, title: 'Project One', link: 'https://github.com/', liveDemo: 'https://live-demo-1.com' },
-    { img: project2, title: 'Project Two', link: 'https://github.com/', liveDemo: 'https://live-demo-2.com' },
-    { img: project3, title: 'Project Three', link: 'https://github.com/', liveDemo: 'https://live-demo-3.com' },
+    { img: project1, title: 'YouTube Clone', link: 'https://github.com/rahul2891/youtube_clone', liveDemo: 'https://live-demo-1.com' },
+    { img: project2, title: 'Netflix Clone', link: 'https://github.com/rahul2891', liveDemo: 'https://live-demo-2.com' },
+    { img: project3, title: 'Professional BE Setup', link: 'https://github.com/rahul2891/professional_BE_setup', liveDemo: 'https://live-demo-3.com' },
+    // { img: project1, title: 'Project One', link: 'https://github.com/', liveDemo: 'https://live-demo-1.com' },
+    // { img: project2, title: 'Project Two', link: 'https://github.com/', liveDemo: 'https://live-demo-2.com' },
+    // { img: project3, title: 'Project Three', link: 'https://github.com/', liveDemo: 'https://live-demo-3.com' },
+  
   ];
 
     return (
-        <Section id="contact">
+        <Section id="projects">
         <SectionTextP1 className="section__text__p1">Browse My Recent</SectionTextP1>
         <Title className="title">Projects</Title>
         <ExperienceDetailsContainer>
@@ -137,7 +142,8 @@ const Projects = () => {
             <ProjectTitle>{project.title}</ProjectTitle>
             <BtnContainer>
               <ProjectButton onClick={() => window.location.href = project.link}>Github</ProjectButton>
-              <ProjectButton onClick={() => window.location.href = project.link}>Live Demo</ProjectButton>
+              {/* <ProjectButton onClick={() => window.location.href = project.link}>Live Demo</ProjectButton> */}
+              <ProjectButton onClick={() =>  alert('Coming soon!')}>Live Demo</ProjectButton>
             </BtnContainer>
           </DetailsContainer>
         ))}
