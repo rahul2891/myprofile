@@ -12,8 +12,8 @@ const skills = [
         { name: 'HTML', level: 'Experienced' },
         { name: 'CSS', level: 'Experienced' },
         { name: 'Javascript', level: 'Experienced' },
-        { name: 'ReactJS', level: 'Experienced' },
-        { name: 'Style Components', level: 'Experienced' },
+        { name: 'React', level: 'Experienced' },
+        { name: 'Styled-Components', level: 'Experienced' },
         { name: 'Typescript', level: 'Experienced' },
         // Add more skills here
       ],
@@ -21,12 +21,12 @@ const skills = [
     {
       category: 'Backend Development',
       skills: [
-        { name: 'NodeJS', level: 'Intermediate' },
+        { name: 'Node.js', level: 'Intermediate' },
         { name: 'ExpressJS', level: 'Intermediate' },
         { name: 'MongoDB', level: 'Intermediate' },
         { name: 'Git', level: 'Intermediate' },
         { name: 'SQL', level: 'Intermediate' },
-        { name: 'Node JS', level: 'Intermediate' },
+        { name: 'Nginx', level: 'Beginner' },
         // Add more skills here
       ],
     },

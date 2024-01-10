@@ -78,7 +78,7 @@ const HamburgerIcon = styled.div`
 const IconSpan = styled.span`
   width: 100%;
   height: 2px;
-  background-color: black;
+  background-color: ${props => props.theme === 'light' ? 'black' : 'white'};
   transition: all 0.3s ease-in-out;
 
   &:first-child {
@@ -169,11 +169,16 @@ const Navbar = () => {
       </nav>
       <HamburgerNav id="hamburger-nav">
         <Logo>Rahul Verma</Logo>
+        {theme === 'light' ? (
+  <MdDarkMode style={{width:"30px", height:"30px"}} onClick={toggleTheme} />
+) : (
+  <CiLight style={{width:"30px", height:"30px"}} onClick={toggleTheme} />
+)}
         <HamburgerMenu>
           <HamburgerIcon onClick={toggleMenu}>
-            <IconSpan />
-            <IconSpan />
-            <IconSpan />
+            <IconSpan theme={theme} />
+            <IconSpan theme={theme} />
+            <IconSpan theme={theme} />
           </HamburgerIcon>
           <MenuLinks className={isOpen ? 'open' : ''}>
             <HamburgerLinkItem><HamburgerLink href="#about" onClick={toggleMenu}>About</HamburgerLink></HamburgerLinkItem>
